@@ -18,6 +18,15 @@ variables:
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
 
+schedules:
+
+- cron: "0 9 * * 4"
+  displayName: Weekly Thursday build
+  branches:
+    include:
+    - main/*
+  always: true
+
 stages:
 - stage: Build
   displayName: Build and push stage
